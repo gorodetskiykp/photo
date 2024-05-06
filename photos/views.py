@@ -12,6 +12,7 @@ from .models import Album, Photo
 
 def models_sync(request):
     dirs = [alb.split('/')[-1] for alb in glob(f"{settings.MEDIA_ROOT}/*")]
+    dirs.remove('cache')
     Album.objects.all().delete()
     for alb in dirs:
         images = [f"{alb}/{image.split('/')[-1]}" for image in glob(f"{settings.MEDIA_ROOT}/{alb}/*.jp*")]
@@ -37,6 +38,18 @@ def index(request):
         'carousel_images': carousel_images,
         'gallery_images': gallery_images,
         'background_image': background_image,
+        'albums': Album.objects.all(),
     }
     template = 'photos/index.html'
+    return render(request, template, context)
+
+
+def album(request, title):
+    photos = Album.objects.get(title=title).photos.all()
+    template = 'photos/album.html'
+    context = {
+        'gallery_images': photos,
+        'albums': Album.objects.all(),
+        'background_image': random.choice(photos)
+    }
     return render(request, template, context)

@@ -1,8 +1,11 @@
 {% load static %}
+{% load thumbnail %}
 <div id="animated-thumbnials">
   {% for image in gallery_images %}
     <a href="{{ image.img.url }}">
-      <img src="{{ image.img.url }}" height="300px" />
+      {% thumbnail image.img "x300" crop="center" as im %}
+        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" style="margin-right:10px; margin-bottom:10px;" />
+      {% endthumbnail %}
     </a>
   {% endfor %}
 </div>

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid" style="padding-top: 80px;">
   {% include 'photos/carousel.html' %}
 </div>
 
@@ -29,6 +29,35 @@
 <p>
 <div class="container-fluid">
   {% include 'photos/gallery.html' %}
+</div>
+</p>
+<p>
+<div class="col align-self-center bg-dark container-fluid" data-bs-theme="dark" style="padding:10px;">
+  <center>
+    <div>
+    <p class="fs-3">
+    <a name="price">
+      Цена моего времени и твоего кайфа - 15 000 ₽
+    </a>
+  </p>
+    </div>
+    <div>
+    <p class="fs-5">
+      Приходи сама либо подари подруге
+  </p>
+    </div>
+  </center>
+</div>
+</p>
+
+<p>
+<div class="col align-self-center bg-light text-dark container-fluid" style="padding:10px;">
+  <center><p class="fs-6">
+    <a name="contacts">
+      <div>tg: <a href="https://t.me/Moatilliattableat" target="_blank">@Moatilliattableat</a></div>
+      <div>vk: <a href="https://vk.com/id808832" target="_blank">Саша Dee</a></div>
+    </a>
+  </p></center>
 </div>
 </p>
 {% endblock %}
