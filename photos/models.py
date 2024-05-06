@@ -7,6 +7,9 @@ class Album(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ['title']
+
 
 class Photo(models.Model):
     img = models.ImageField(upload_to='photos')
