@@ -12,7 +12,8 @@ from .models import Album, Photo
 
 def models_sync(request):
     dirs = [alb.split('/')[-1] for alb in glob(f"{settings.MEDIA_ROOT}/*")]
-    dirs.remove('cache')
+    if 'cache' in dirs:
+        dirs.remove('cache')
     Album.objects.all().delete()
     for alb in dirs:
         images = [f"{alb}/{image.split('/')[-1]}" for image in glob(f"{settings.MEDIA_ROOT}/{alb}/*.jp*")]
