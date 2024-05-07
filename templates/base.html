@@ -10,16 +10,37 @@
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.theme.default.css' %}">
     <link type="text/css" rel="stylesheet" href="{% static 'css/lightgallery.css' %}" />
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+    </style>
   </head>
   <body class="bg-dark text-white">
   <style>
     body {
       background-image: url("{{ background_image.img.url }}");
+      font-family: "Amatic SC", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: x-large;
+    }
+    .dropdown-item {
+      font-size: x-large;
     }
     a {
       text-decoration: none;
     }
+    .amatic-sc-regular {
+      font-family: "Amatic SC", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: x-large;
+    }
 
+    .amatic-sc-bold {
+      font-family: "Amatic SC", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+    }
   </style>
     {% include 'nav.html' %}
   <div style="padding-bottom: 70px">&npsb;</div>

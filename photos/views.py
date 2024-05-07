@@ -46,6 +46,7 @@ def album(request, title):
     context = {
         'gallery_images': photos,
         'albums': Album.objects.all(),
-        'background_image': random.choice(photos)
+        'background_image': random.choice(photos),
+        'title': title,
     }
     return render(request, template, context)
