@@ -14,14 +14,27 @@
         padding-left: 30%;
     }
     .selfinfoitem {
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         margin: 5px;
+        padding: 10px 10px 10px 10px;
     }
     .selfinfoitemtext {
       align-items: center;
       justify-content: center;
-      padding: 10px 10px 0px 10px;
+      align-content: center;
+    }
+
+    @media screen and (max-width: 750px) {
+      .selfinfo {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          padding-left: 0;
+      }
     }
 </style>
 <div class="selfinfo">
@@ -30,10 +43,10 @@
     </div>
     <div class="selfinfoitem bg-dark" data-bs-theme="dark">
       <div class="selfinfoitemtext">
-      САША
+        САША
       </div>
       <div class="selfinfoitemtext">
-      <pre>фотограф твоего тела</pre>
+        фотограф твоего тела
       </div>
     </div>
 </div>
