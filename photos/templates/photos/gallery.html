@@ -1,11 +1,44 @@
-{% load static %}
 {% load thumbnail %}
-<div id="animated-thumbnials">
-  {% for image in gallery_images %}
-    <a href="{{ image.img.url }}">
-      {% thumbnail image.img "x300" crop="center" as im %}
-        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" style="margin-right:10px; margin-bottom:10px;" />
-      {% endthumbnail %}
-    </a>
-  {% endfor %}
+
+<style>
+    .mainbox {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .flexitem {
+        margin-bottom: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+
+    }
+    img {
+        box-shadow: 0px 0px 5px black;
+    }
+    /* [1] The container */
+    .img-hover-zoom {
+      height: 400px; /* [1.1] Set it as per your need */
+      overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+    }
+
+    /* [2] Transition property for smooth transformation of images */
+    .img-hover-zoom img {
+      transition: transform .5s ease;
+    }
+
+    /* [3] Finally, transforming the image when container gets hovered */
+    .img-hover-zoom:hover img {
+      transform: scale(1.1);
+    }
+</style>
+
+<div class="mainbox" id="animated-thumbnials">
+    {% for image in gallery_images %}
+        <a href="{{ image.img.url }}" class="flexitem img-hover-zoom">
+            {% thumbnail image.img "x400" crop="center" as im %}
+            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" />
+            {% endthumbnail %}
+        </a>
+    {% endfor %}
 </div>

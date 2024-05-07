@@ -32,12 +32,11 @@ def models_sync(request):
 def index(request):
     images = Photo.objects.order_by('?')
     carousel_images = images[:10]
-    gallery_images = images[10:30]
+    photos = images[10:30]
     background_image = images[30]
-
     context = {
         'carousel_images': carousel_images,
-        'gallery_images': gallery_images,
+        'gallery_images': photos,
         'background_image': background_image,
         'albums': Album.objects.all(),
     }

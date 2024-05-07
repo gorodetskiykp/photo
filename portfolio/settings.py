@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,10 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&(y6^st5p%abygo!@adg91+0cbyxn1nf-z*_3pt^9f=21@f*5l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG').lower() == 'true'
+print(DEBUG)
 THUMBNAIL_DEBUG = False
 
-ALLOWED_HOSTS = ["sasha-dee.ru"]
+ALLOWED_HOSTS = ["sasha-dee.ru", "127.0.0.1"]
 
 
 # Application definition
@@ -106,9 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -124,7 +126,10 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = "/var/www/static/"
 
-MEDIA_ROOT = '/var/www/media/'
+if DEBUG:
+    MEDIA_ROOT = BASE_DIR / 'media'
+else:
+    MEDIA_ROOT = '/var/www/media/'
 MEDIA_URL = '/media/'
 
 # Default primary key field type
