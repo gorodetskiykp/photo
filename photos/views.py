@@ -1,12 +1,8 @@
 from glob import glob
 import random
-import re
 
 from django.shortcuts import render, redirect
 from django.conf import settings
-from PIL import Image as PILImage
-from sorl.thumbnail import get_thumbnail
-from sorl.thumbnail import delete
 from .models import Album, Photo
 
 
