@@ -12,7 +12,11 @@ def models_sync(request):
         dirs.remove('cache')
     Album.objects.all().delete()
     for alb in dirs:
-        images = [f"{alb}/{image.split('/')[-1]}" for image in glob(f"{settings.MEDIA_ROOT}/{alb}/*.jp*")]
+        images = [
+            f"{alb}/{image.split('/')[-1]}"
+            for image in glob(f"{settings.MEDIA_ROOT}/{alb}/*")
+            if (image.endswith(".jpg") or image.endswith(".jpeg") or image.endswith(".JPG") or image.endswith(".JPEG"))
+        ]
         album = alb.title()
         alb_obj = Album.objects.create(
             title=album,
