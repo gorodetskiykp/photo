@@ -25,7 +25,6 @@ SECRET_KEY = 'django-insecure-&(y6^st5p%abygo!@adg91+0cbyxn1nf-z*_3pt^9f=21@f*5l
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG').lower() == 'true'
-print(DEBUG)
 THUMBNAIL_DEBUG = False
 
 ALLOWED_HOSTS = ["sasha-dee.ru", "127.0.0.1"]
@@ -42,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sorl.thumbnail',
     'photos.apps.PhotosConfig',
+    'rate.apps.RateConfig',
 ]
 
 MIDDLEWARE = [

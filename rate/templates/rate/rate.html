@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% block content %}
+<style>
+    .play_box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 50px;
+        margin-bottom: 40px;
+    }
+    .play_item {
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .play_item img{
+        width: 100%;
+    }
+</style>
+<div>
+  <center><h1 style="text-shadow: 0px 0px 3px black;">Выбери!</h1></center>
+</div>
+<div class="container-fluid">
+    <div class="play_box">
+        <div class="play_item">
+        {% thumbnail first_photo.img "x400" crop="center" as im %}
+            <div><a href="{% url 'rate:rate' first_photo.id second_photo.id 0 %}"><img src="{{ im.url }}" /></a></div>
+            <div><a href="{% url 'photos:album' first_photo_album %}" style="color:white;">В альбом {{ first_photo_album }}</a></div>
+        {% endthumbnail %}
+        </div>
+        <div class="play_item">
+        {% thumbnail second_photo.img "x400" crop="center" as im %}
+            <div><a href="{% url 'rate:rate' second_photo.id first_photo.id 0 %}"><img src="{{ im.url }}" /></a></div>
+            <div><a href="{% url 'photos:album' second_photo_album %}" style="color:white;">В альбом {{ second_photo_album }}</a></div>
+        {% endthumbnail %}
+        </div>
+    </div>
+
+</div>
+<div>
+  <center>...или <a href="{% url 'rate:rate' first_photo.id second_photo.id 1 %}" style="color:white; text-decoration: underline">пропусти</a></center>
+</div>
+{% endblock %}
