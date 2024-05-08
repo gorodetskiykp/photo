@@ -1,75 +1,109 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SASHA Photo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.theme.default.css' %}">
-    <link type="text/css" rel="stylesheet" href="{% static 'css/lightgallery.css' %}" />
+    <link type="text/css" rel="stylesheet" href="{% static 'css/lightgallery.css' %}"/>
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
     </style>
-  </head>
-  <body class="bg-dark text-white">
-  <style>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+                if (document.scripts[j].src === r) {
+                    return;
+                }
+            }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(97230490, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/97230490" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+
+</head>
+<body class="bg-dark text-white">
+<style>
     body {
-      background-image: url("{{ background_image.img.url }}");
-      font-family: "Amatic SC", sans-serif;
-      font-weight: 400;
-      font-style: normal;
-      font-size: x-large;
+        background-image: url("{{ background_image.img.url }}");
+        font-family: "Amatic SC", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: x-large;
     }
+
     .dropdown-item {
-      font-size: x-large;
+        font-size: x-large;
     }
+
     a {
-      text-decoration: none;
+        text-decoration: none;
     }
+
     .amatic-sc-regular {
-      font-family: "Amatic SC", sans-serif;
-      font-weight: 400;
-      font-style: normal;
-      font-size: x-large;
+        font-family: "Amatic SC", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: x-large;
     }
 
     .amatic-sc-bold {
-      font-family: "Amatic SC", sans-serif;
-      font-weight: 700;
-      font-style: normal;
+        font-family: "Amatic SC", sans-serif;
+        font-weight: 700;
+        font-style: normal;
     }
-  </style>
-    {% include 'nav.html' %}
-  <div style="padding-bottom: 70px">&npsb;</div>
-    {% block content %}
-    {% endblock %}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/lightgallery.min.js' %}"></script>
-    <script src="{% static 'js/lg-thumbnail.min.js' %}"></script>
-    <script src="{% static 'js/lg-fullscreen.min.js' %}"></script>
+</style>
+{% include 'nav.html' %}
+<div style="padding-bottom: 70px">&npsb;</div>
+{% block content %}
+{% endblock %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/lightgallery.min.js' %}"></script>
+<script src="{% static 'js/lg-thumbnail.min.js' %}"></script>
+<script src="{% static 'js/lg-fullscreen.min.js' %}"></script>
 
-    <script type="text/javascript">
-      $(document).ready(function(){
+<script type="text/javascript">
+    $(document).ready(function () {
         $(".owl-carousel").owlCarousel({
-          loop:true,
-          margin:15,
-          nav:false,
-          autoWidth:true
+            loop: true,
+            margin: 15,
+            nav: false,
+            autoWidth: true
         });
-      });
-    </script>
-    <script type="text/javascript">
-        lightGallery(document.getElementById('animated-thumbnials'), {
-            thumbnail:true,
-            animateThumb: true,
-            showThumbByDefault: true
+    });
+</script>
+<script type="text/javascript">
+    lightGallery(document.getElementById('animated-thumbnials'), {
+        thumbnail: true,
+        animateThumb: true,
+        showThumbByDefault: true
 
-        });
-    </script>
-  </body>
+    });
+</script>
+</body>
 </html>
